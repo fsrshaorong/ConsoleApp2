@@ -39,6 +39,7 @@ namespace ConsoleApp2
             Console.WriteLine("输入");
             string s=Console.ReadLine();
             Find(s,dictionary);
+            Console.WriteLine("nihap");
         }
     }
 }
