@@ -1,0 +1,11 @@
+C:\Users\a\Desktop\C\C#\ConsoleApp2\ConsoleApp2\bin\Debug\ConsoleApp2.exe.config
+C:\Users\a\Desktop\C\C#\ConsoleApp2\ConsoleApp2\bin\Debug\ConsoleApp2.exe
+C:\Users\a\Desktop\C\C#\ConsoleApp2\ConsoleApp2\bin\Debug\ConsoleApp2.pdb
+C:\Users\a\Desktop\C\C#\ConsoleApp2\ConsoleApp2\obj\Debug\ConsoleApp2.csproj.AssemblyReference.cache
+C:\Users\a\Desktop\C\C#\ConsoleApp2\ConsoleApp2\obj\Debug\ConsoleApp2.csproj.SuggestedBindingRedirects.cache
+C:\Users\a\Desktop\C\C#\ConsoleApp2\ConsoleApp2\obj\Debug\ConsoleApp2.csproj.CoreCompileInputs.cache
+C:\Users\a\Desktop\C\C#\ConsoleApp2\ConsoleApp2\obj\Debug\ConsoleApp2.exe
+C:\Users\a\Desktop\C\C#\ConsoleApp2\ConsoleApp2\obj\Debug\ConsoleApp2.pdb
+C:\Users\a\Desktop\C\C#\ConsoleApp2\ConsoleApp2\bin\Debug\System.Data.SqlClient.dll
+C:\Users\a\Desktop\C\C#\ConsoleApp2\ConsoleApp2\bin\Debug\System.Data.SqlClient.xml
+C:\Users\a\Desktop\C\C#\ConsoleApp2\ConsoleApp2\obj\Debug\ConsoleApp2.csproj.CopyComplete
