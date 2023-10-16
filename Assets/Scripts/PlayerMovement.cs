@@ -8,7 +8,7 @@ public class PlayerMovement : NetworkBehaviour
     Vector3 m_Movement;
     // 创建变量，获取用户输入的方向
     float horizontal;
-    float vertical;
+    float vertical; 
 
     //创建一个 刚体对象
     Rigidbody m_Rigibody;
