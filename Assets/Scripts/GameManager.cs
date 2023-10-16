@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using System.Runtime.CompilerServices;
 using System.Text;
 using Unity.Netcode;
@@ -19,6 +20,13 @@ public class GameManager : MonoBehaviour
     private int roomPlayers = 0;
     
     private string passwdStored;
+
+    [SerializeField] 
+    private List<GameObject> playerPrefabPool;
+
+    private const int EngineerPrefab = 0;
+    private const int HeroPrefab = 1;
+    
     void Start()
     {
         CreatePlayer();
@@ -50,7 +58,7 @@ public class GameManager : MonoBehaviour
     {
         foreach (var info in NetworkManager.Singleton.ConnectedClientsList)
         {
-            var obj = Instantiate(playerPrefab);
+            var obj = Instantiate(playerPrefab, new Vector3(3.1f, 1f, -0.7f), Quaternion.identity);
             info.PlayerObject = obj.GetComponent<NetworkObject>();
             //info.PlayerObject.Spawn();
             info.PlayerObject.SpawnWithOwnership(info.ClientId);
@@ -100,6 +108,9 @@ public class GameManager : MonoBehaviour
     
     public void OnStartHostBtnClick()
     {
+        NetworkManager.Singleton.OnClientConnectedCallback += connectedCallback;
+        NetworkManager.Singleton.OnClientDisconnectCallback += disconnectCallback;
+        
         passwdStored = passwdInput.text;
         //回调
         NetworkManager.Singleton.ConnectionApprovalCallback = approvalCallback;
@@ -122,10 +133,11 @@ public class GameManager : MonoBehaviour
 
     void approvalCallback(NetworkManager.ConnectionApprovalRequest req,NetworkManager.ConnectionApprovalResponse res)
     {
+        res.PlayerPrefabHash = 2217122311;
         if (req.ClientNetworkId.Equals(NetworkManager.Singleton.LocalClientId))
         {
             res.Approved = true;
-            res.CreatePlayerObject = false;
+            res.CreatePlayerObject = true;
             return;
         }
         var cId=req.ClientNetworkId;
@@ -138,7 +150,7 @@ public class GameManager : MonoBehaviour
         {
             res.Approved = true;
             //是否创建3d对象 
-            res.CreatePlayerObject = false;
+            res.CreatePlayerObject = true;
         }
         else
         {
@@ -151,6 +163,7 @@ public class GameManager : MonoBehaviour
     {
         Debug.Log("connected suc:"+id);
         ++roomPlayers;
+        Debug.Log(roomPlayers);
         roomPlayerDisplay.SetText(roomPlayers.ToString());
     }
     
@@ -159,6 +172,16 @@ public class GameManager : MonoBehaviour
         Debug.Log("connected fail:"+id);
         --roomPlayers;
         roomPlayerDisplay.SetText(roomPlayers.ToString());
+    }
+
+    public void ChooseHero()
+    {
+        playerPrefab = playerPrefabPool[HeroPrefab];
+    }
+
+    public void ChooseEngineer()
+    {
+        playerPrefab = playerPrefabPool[EngineerPrefab];
     }
 }
 

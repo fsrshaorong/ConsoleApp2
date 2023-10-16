@@ -52,7 +52,7 @@ public class Enemy : LifeObject
         speed = 3;
         agent.speed = speed;
         player = GameObject.Find("Engineer(Clone)");
-        playerPos = player.transform;
+        //playerPos = player.transform;
         observer.playerPos = playerPos;
 
         // 找到巡逻位置
@@ -157,7 +157,7 @@ public class Enemy : LifeObject
         // 记录玩家最后位置
         if (!observer.IsPlayerInRange)
         {
-            lastPlayerPosition = playerPos.position;
+            //lastPlayerPosition = playerPos.position;
             isChasing = false;
         }
     }

@@ -1,8 +1,10 @@
+using Unity.Netcode;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
-public class UIManager : MonoBehaviour
+public class UIManager : NetworkBehaviour
 {
+    //TODO 将btnPanel移到UIScene，然后将LobbyUIScene设为 isServer 才开，还要同步
     void Start()
     {
         LoadLobbyUIScene();
